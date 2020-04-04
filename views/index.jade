@@ -7,11 +7,22 @@ block content
   div(id="date")
   
   section(class="content")
+  a(id="start")
+    button() Start
+  h3 No Fap
+  h4 Streaks
+  each streak in streak_list
+    li = #{streak.startDate} to #{streak.endDate}
   div(class="meter")
     span(class="progress", style="width: 25%")
+  button() Break
+  h3 Sleep
   div(class="meter orange nostripes")
     span(class="progress", style="width: 33.3%")
+  button() Break
+  h3 RSI
   div(class="meter red")
     span(class="progress", style="width: 80.0%")
+  button() Break
 block scripts
   script(type="text/javascript", src="/scripts/progressBars.js")

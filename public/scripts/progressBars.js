@@ -1,11 +1,14 @@
 console.log("Progress bar script loading..")
+
+const d = new Date(); // get today
+
 displayDate();
 setColor();
 
+document.getElementById("start").setAttribute("href","/"+dataDate(d));
+
 // announce current date
 function displayDate() {
-    // get today
-    const d = new Date();
     const n = d.getDay();
     let dateDisplay = document.getElementById("date");
     //dateDisplay.appendChild(document.createTextNode("Today it is day " + n + " of the week"));
@@ -22,4 +25,8 @@ function setColor() {
         console.log(bars[i]);
         bars[i].style.backgroundColor = "hsl("+step+",100%,50%)";
     }
+}
+
+function dataDate(d) {
+    return d.toISOString().replace('T',' ').replace('Z',''); // convert date ISO to SQLite datetime format
 }
