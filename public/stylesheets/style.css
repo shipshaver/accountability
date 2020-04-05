@@ -1,3 +1,5 @@
+/* BASIC, TEXT */
+
 body {
   padding: 3vw;
   font-size: 5vw;
@@ -48,7 +50,6 @@ li {
 
 button {
   background-color: rgb(188, 195, 199); 
-  border: none;
   color: white;
   padding: 3vw 2vw;
   text-align: center;
@@ -67,6 +68,8 @@ button {
 button:hover {
   background-color: rgb(105, 192, 161);
 }
+
+/* PROGRESS BARS */
 
 .meterWrapper {
   margin: 5vw 5vw 5vw 5vw;
@@ -202,4 +205,60 @@ button:hover {
 .nostripes > span > span, .nostripes > span:after {
   animation: none;
   background-image: none;
+}
+
+/* SITE OVERLAY */
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,1); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+  text-align: center;
+  align-content: center;
+}
+
+#overlay #content {
+  color: white;
+  padding: 5vw 5vw 5vw 5vw;
+  position:fixed;
+  align-content: center;
+}
+
+/* FORM */
+input[type=password] {
+  width: 50%;
+  padding: 3vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+input[type=password]:focus {
+  border: 0.5vw solid #555;
+}
+
+input[type=submit] {
+  background-color: rgb(32, 35, 36); 
+  color: white;
+  padding: 3vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2.5vw;
+  font-family: ModernSans;
+  border-radius: 2vw;
+  border: rgb(59, 60, 63) solid;
+  margin: 1vw 3vw 3vw 3vw;
+  transition-duration: 0.5s;
+}
+
+input[type=submit]:hover{
+  background-color: rgb(110, 121, 124); 
 }

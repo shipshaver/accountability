@@ -1,6 +1,10 @@
 console.log("Progress bar script loading..")
+
+//document.getElementById("openSesame").addEventListener("click", overlayOff);
+
 const d = new Date(); // get today
 
+//overlayOn();
 startTime();
 setColor();
 
@@ -47,3 +51,16 @@ function setColor() {
 function dataDate(d) {
     return d.toISOString().replace('T',' ').replace('Z',''); // convert date ISO to SQLite datetime format
 }
+
+// overlay
+function overlayOn() {
+    document.getElementById("overlay").style.display = "block";
+}
+
+function overlayOff(password) {
+    //let password = document.getElementById("password").value;
+    if (password == "unstoppable") {
+        document.getElementById("overlay").style.display = "none";
+        document.getElementById("overlay").style.height = 0;
+    }
+} 

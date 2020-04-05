@@ -1,6 +1,13 @@
 extends layout
 
 block content
+  div(id="overlay") 
+    div(id="content") 
+      h2 What's the magic word?
+      form
+        input(id="password", type="password", name="password")
+        input(id="openSesame", type="submit", value="Open sesame", onclick="overlayOff(this.form.password.value)")
+
   h1= title
   p <i> “It is never too late to be what you might have been.” ― George Eliot </i>
 
