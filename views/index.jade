@@ -2,51 +2,66 @@ extends layout
 
 block content
   h1= title
-  p “It is never too late to be what you might have been.” ― George Eliot 
+  p <i> “It is never too late to be what you might have been.” ― George Eliot </i>
 
-  div(id="date")
+  p Welcome back. Today it is 
+    span(id="date") 
   
   section(class="content")
-  h3 No Fap
+    h3 No Fap
+    h4 Members: Ian
   
-  // show progress of current streak 
-  - if (streak_list.length != 0) { streak = streak_list[streak_list.length-1] }
-  - currentText = "No streaks yet!"
-  - /*if (streak) {
-  -   if (streak.end_date) {  
-  -     endDate = streak.end_date.toDateString();
-  -     duration = streak.day_duration;
-  -   }
-  -   else { // if we are still in the streak (no end date), use today as end date 
-  -     endDate = new Date();
-  -     duration = new Streak({ end_date: endDate }).day_duration;
-  -   }
-  -   currentText = duration + " days from " + streak.start_date.toDateString() " to " + endDate;
-  - }*/
-  h4 Current Streak: #{currentText}
-  div(class="meter")
-    span(class="progress", style="width: 25%")
-  a(id="start") 
-    button() Start over
-  a(href="/streaks/undo")
-    button() Undo latest streak
+    // show progress of current streak 
+    - if (streak_list.length != 0) { streak = streak_list[streak_list.length-1] }
+    - currentText = "No streaks yet!"
+    - /*if (streak) {
+    -   if (streak.end_date) {  
+    -     endDate = streak.end_date.toDateString()
+    -     duration = streak.day_duration
+    -   }
+    -   else { // if we are still in the streak (no end date), use today as end date 
+    -     endDate = new Date()
+    -     duration = new Streak({ end_date: endDate }).day_duration
+    -   }
+    -   currentText = duration + " days from " + streak.start_date.toDateString() " to " + endDate
+    - }*/
+    p Current Streak: #{currentText}
+    div(class="meterWrapper")
+      div(class="meter")
+        span(class="progress", style="width: 25%")
+          h1 ^
+      p(class="day", style="width: 25%") You are at day ..
+    a(id="start") 
+      button() Start over
+    a(href="/streaks/undo")
+      button() Undo latest streak
 
-  // list streaks
-  h4 Streaks
-  ul
-  - let i = 1 // streak counter for list
-  each streak in streak_list
-    - if (!streak) console.log("no streak")
-    li #{i} Streak of #{streak.day_duration} days from #{streak.start_date} to #{streak.end_date}
-    - i++
-  
-  h3 Sleep
-  div(class="meter orange nostripes")
-    span(class="progress", style="width: 33.3%")
-  button() Break
-  h3 RSI
-  div(class="meter red")
-    span(class="progress", style="width: 80.0%")
-  button() Break
-block scripts
-  script(type="text/javascript", src="/scripts/progressBars.js")
+    // list streaks
+    h4 Streaks
+    ul
+    - let i = 1 // streak counter for list
+    each streak in streak_list
+      - if (!streak) console.log("no streak")
+      - if (streak.end_date) {
+      -  end = " to " + streak.end_date.toDateString()
+      -  duration = " of " + streak.day_duration + "days" 
+      - }
+      li 
+        p #{i} Streak #{duration} from #{streak.start_date.toDateString()} #{end}
+      - i++
+    
+  section(class="content")
+    h3 Sleep
+    h4 Members: Lan
+    div(class="meter orange nostripes")
+      span(class="progress", style="width: 33.3%")
+    button() Break
+    
+  section(class="content")
+    h3 RSI
+    h4 Members: Ian
+    div(class="meter red")
+      span(class="progress", style="width: 80.0%")
+    button() Break
+  block scripts
+    script(type="text/javascript", src="/scripts/progressBars.js")

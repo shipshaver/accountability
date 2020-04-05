@@ -1,35 +1,88 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 3vw;
+  font-size: 5vw;
+}
+
+@font-face { font-family: Quartzo; src: url('../fonts/Quartzo.ttf'); } 
+@font-face { font-family: Comfortaa; src: url('../fonts/Quartzo.ttf'); } 
+@font-face { font-family: ModernSans; src: url('../fonts/ModernSans-Light.otf'); } 
+
+h1 {
+  font-family: Quartzo,sans-serif;
+  font-size: 10vw;
+}
+
+h2, h3, h4 {
+  font-family: ModernSans;
+}
+
+p {
+  font-family: ModernSans;
+  font-size: 4vw;
 }
 
 a {
   color: #00B7FF;
 }
 
+li {
+  margin-left: 5vw;
+}
+
 .content {
-  margin: 5vh 5vh 5vh 5vh;
+  padding: 4vw 4vw 4vw 4vw;
+  margin: 5vw 5vw 8vw 8vw;
+  background: rgb(161, 191, 216);
+	-moz-border-radius: 5vw;
+	-webkit-border-radius: 5vw;
+	border-radius: 5vw;
+}
+
+button {
+  background-color: rgb(188, 195, 199); 
+  border: none;
+  color: white;
+  padding: 3vw 2vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2.5vw;
+  font-family: ModernSans;
+  transition-duration: 1s;
+	-moz-border-radius: 2vw;
+	-webkit-border-radius: 2vw;
+  border-radius: 2vw;
+  border: rgb(150, 155, 170) solid;
+  margin: 3vw 3vw 3vw 3vw;
+}
+
+button:hover {
+  background-color: rgb(105, 192, 161);
+}
+
+.meterWrapper {
+  margin: 5vw 5vw 5vw 5vw;
+  height: 20vw;
 }
 
 .meter { 
-  margin: 5vh 5vh 5vh 5vh;
-	height: 15vh;
-	position: relative;
+	height: 15vw;
 	background: #555;
-	-moz-border-radius: 5vh;
-	-webkit-border-radius: 5vh;
-	border-radius: 5vh;
-	padding: 10px;
-	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+	-moz-border-radius: 5vw;
+	-webkit-border-radius: 5vw;
+	border-radius: 5vw;
+	position: relative;
+	padding: 2vw;
+  box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
 }
 
 .meter > span {
-  display: block;
+  display: flex;
   height: 100%;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-right-radius: 1vw;
+  border-bottom-right-radius: 1vw;
+  border-top-left-radius: 3.5vw;
+  border-bottom-left-radius: 3.5vw;
   /*background-color: rgb(43,194,83);
   
   background-image: linear-gradient(
@@ -43,6 +96,23 @@ a {
   position: relative;
   overflow: hidden;
   animation: progress 5s;
+  
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-end;
+}
+
+.meter > span h1 {
+  color: green;
+  animation: stretch 5s;
+}
+
+.day {
+  margin: 1vw 1vw 1vw 1vw;
+  height: 4.5vw;
+  text-align: right;
+  overflow: hidden;
+  animation: stretch 5s;
 }
 
 @keyframes stretch {
