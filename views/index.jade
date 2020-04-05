@@ -8,7 +8,7 @@ block content
     span(id="date") 
   
   section(class="content")
-    h3 No Fap
+    h2 No Fap
     h4 Members: Ian
   
     // show progress of current streak 
@@ -25,12 +25,18 @@ block content
     -   }
     -   currentText = duration + " days from " + streak.start_date.toDateString() " to " + endDate
     - }*/
+    - goal = 30
     p Current Streak: #{currentText}
+    p Goal: #{goal}
     div(class="meterWrapper")
       div(class="meter")
         span(class="progress", style="width: 25%")
-          h1 ^
-      p(class="day", style="width: 25%") You are at day ..
+          //h1 ^
+      div(class="markers")
+        p(class="mark", style="text-align: left") 0
+        p(class="mark") #{goal/2}
+        p(class="mark", style="text-align: right") #{goal}
+      p(class="day", style="width: 25%") You're here .. ^
     a(id="start") 
       button() Start over
     a(href="/streaks/undo")
@@ -51,14 +57,14 @@ block content
       - i++
     
   section(class="content")
-    h3 Sleep
+    h2 Sleep
     h4 Members: Lan
     div(class="meter orange nostripes")
       span(class="progress", style="width: 33.3%")
     button() Break
     
   section(class="content")
-    h3 RSI
+    h2 RSI
     h4 Members: Ian
     div(class="meter red")
       span(class="progress", style="width: 80.0%")
