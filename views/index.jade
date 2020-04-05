@@ -2,7 +2,7 @@ extends layout
 
 block content
   // functions
-  - function dayDuration(streak) { Math.floor((streak.endDate - streak.startDate) / (1000*60*60*24)); console.log(streak.endDate)}
+  - function 
   h1= title
   p Welcome to #{title}
 
@@ -13,10 +13,10 @@ block content
     button() Start
   h3 No Fap
   - currentStreak = streak_list[streak_list.length-1]
-  h4 Current Streak: #{dayDuration(currentStreak)}
+  h4 Current Streak: #{currentStreak.day_duration}
   h4 Streaks
   each streak in streak_list
-    li #{streak.id} Streak of #{dayDuration(streak)} days from #{streak.startDate} to #{streak.endDate}
+    li #{streak.id} Streak of #{streak.day_duration} days from #{streak.start_date} to #{streak.end_date}
   div(class="meter")
     span(class="progress", style="width: 25%")
   button() Break

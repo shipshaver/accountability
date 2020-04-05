@@ -38,4 +38,17 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//Set up mongoose connection
+//Get the default connection
+const mongoose = require('mongoose');
+//Set up default mongoose connection
+var devUrl = 'mongodb+srv://Lan:<KlpKwXOFfe4NIaxq>@cluster0-s8al4.azure.mongodb.net/accountability?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || devUrl;
+mongoose.connect(mongoDB, { useNewUrlParser: true });
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+
 module.exports = app;
