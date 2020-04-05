@@ -1,25 +1,45 @@
 extends layout
 
 block content
-  // functions
-  - function 
   h1= title
-  p Welcome to #{title}
+  p “It is never too late to be what you might have been.” ― George Eliot 
 
   div(id="date")
   
   section(class="content")
-  a(id="start")
-    button() Start
   h3 No Fap
-  - currentStreak = streak_list[streak_list.length-1]
-  h4 Current Streak: #{currentStreak.day_duration}
-  h4 Streaks
-  each streak in streak_list
-    li #{streak.id} Streak of #{streak.day_duration} days from #{streak.start_date} to #{streak.end_date}
+  
+  // show progress of current streak 
+  - if (streak_list.length != 0) { streak = streak_list[streak_list.length-1] }
+  - currentText = "No streaks yet!"
+  - /*if (streak) {
+  -   if (streak.end_date) {  
+  -     endDate = streak.end_date.toDateString();
+  -     duration = streak.day_duration;
+  -   }
+  -   else { // if we are still in the streak (no end date), use today as end date 
+  -     endDate = new Date();
+  -     duration = new Streak({ end_date: endDate }).day_duration;
+  -   }
+  -   currentText = duration + " days from " + streak.start_date.toDateString() " to " + endDate;
+  - }*/
+  h4 Current Streak: #{currentText}
   div(class="meter")
     span(class="progress", style="width: 25%")
-  button() Break
+  a(id="start") 
+    button() Start over
+  a(href="/streaks/undo")
+    button() Undo latest streak
+
+  // list streaks
+  h4 Streaks
+  ul
+  - let i = 1 // streak counter for list
+  each streak in streak_list
+    - if (!streak) console.log("no streak")
+    li #{i} Streak of #{streak.day_duration} days from #{streak.start_date} to #{streak.end_date}
+    - i++
+  
   h3 Sleep
   div(class="meter orange nostripes")
     span(class="progress", style="width: 33.3%")

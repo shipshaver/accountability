@@ -19,6 +19,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// sessions
+/*
+var ses = require('express-session');
+var options= {..};// initialise and use session middleware
+app.use(ses(options));*/
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -41,8 +47,9 @@ app.use(function(err, req, res, next) {
 //Set up mongoose connection
 //Get the default connection
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 //Set up default mongoose connection
-var devUrl = 'mongodb+srv://Lan:<KlpKwXOFfe4NIaxq>@cluster0-s8al4.azure.mongodb.net/accountability?retryWrites=true&w=majority'
+var devUrl = 'mongodb+srv://Lan:KlpKwXOFfe4NIaxq@cluster0-s8al4.azure.mongodb.net/accountability?retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || devUrl;
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;

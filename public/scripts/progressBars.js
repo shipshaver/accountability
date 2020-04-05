@@ -1,11 +1,10 @@
 console.log("Progress bar script loading..")
-
 const d = new Date(); // get today
 
 displayDate();
 setColor();
 
-document.getElementById("start").setAttribute("href","/"+dataDate(d));
+document.getElementById("start").setAttribute("href","/streaks/"+dataDate(d));
 
 // announce current date
 function displayDate() {

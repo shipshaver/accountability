@@ -1,9 +1,9 @@
 
 //Require Mongoose
-import { Schema as _Schema, model } from 'mongoose';
+mongoose = require('mongoose');
 
 //Define a schema
-var Schema = _Schema;
+var Schema = mongoose.Schema;
 
 var StreakSchema = new Schema({
   start_date  : { type: Date, required: true},
@@ -14,14 +14,14 @@ var StreakSchema = new Schema({
 StreakSchema
 .virtual('day_duration')
 .get(function () { 
-  Math.floor((streak.endDate - streak.startDate) / (1000*60*60*24)); 
+  Math.floor((this.endDate - this.startDate) / (1000*60*60*24)); 
 });
 
-BookInstanceSchema
+StreakSchema
 .virtual('url')
 .get(function () {
   return '/streaks/' + this._id;
 });
 
 //Export function to create model class
-export default model('Streak', StreakSchema );
+module.exports = mongoose.model('Streak', StreakSchema );
