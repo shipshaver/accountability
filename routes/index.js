@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Streak = require('../models/streak');
+var Streak = require('../models/streak').default;
 
 //let lastID = 0;
 

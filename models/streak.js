@@ -1,9 +1,9 @@
 
 //Require Mongoose
-var mongoose = require('mongoose');
+import { Schema as _Schema, model } from 'mongoose';
 
 //Define a schema
-var Schema = mongoose.Schema;
+var Schema = _Schema;
 
 var StreakSchema = new Schema({
   start_date  : { type: Date, required: true},
@@ -24,4 +24,4 @@ BookInstanceSchema
 });
 
 //Export function to create model class
-module.exports = mongoose.model('Streak', StreakSchema );
+export default model('Streak', StreakSchema );
